@@ -16,7 +16,6 @@ const SelectedMovie = ({
   const KEY = "15bec2bf";
   const countRef = useRef(0);
 
-  const controller = new AbortController();
   const userRating = watchedList.find(
     (w) => w.imdbID === selectedId
   )?.userRating;
@@ -52,7 +51,6 @@ const SelectedMovie = ({
       setMovieDetails(data);
     }
     getMovieDetails();
-    return () => controller.abort();
   }, [selectedId]);
 
   useEffect(() => {
